@@ -164,6 +164,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"log"
 	"net"
 	"os"
 	"strings"
@@ -213,13 +214,20 @@ func HandleClient(client *Client) {
 	defer client.Conn.Close()
 	defer RemoveClient(client)
 
+	clientIP := client.Conn.RemoteAddr().String()
+	log.Println("Client connected:", clientIP)
+
 	client.Writer.WriteString("Welcome to TCP-Chat!\n")
 	client.Writer.WriteString("[ENTER YOUR NAME]: ")
 	client.Writer.Flush()
 
 	name, err := client.Reader.ReadString('\n')
-	for len(name) < 2 || err != nil {
-		client.Writer.WriteString("Wrong name\n")
+	for len(name) < 2 || err != nil || isNameTaken(name) {
+		if isNameTaken(name) {
+			client.Writer.WriteString("Name is already taken\n")
+		} else {
+			client.Writer.WriteString("Wrong name\n")
+		}
 		client.Writer.WriteString("[ENTER YOUR NAME]: ")
 		client.Writer.Flush()
 		name, err = client.Reader.ReadString('\n')
@@ -240,6 +248,7 @@ func HandleClient(client *Client) {
 		formattedMessage := fmt.Sprintf("[%s][%s]: %s\n", message.Time.Format("2006-01-02 15:04:05"), message.Sender, message.Text)
 		client.Writer.WriteString(formattedMessage)
 		client.Writer.Flush()
+		log.Println(formattedMessage) // Log the message
 	}
 
 	Broadcast(Message{Sender: "", Text: "\n" + client.Name + " has joined our chat...", Time: time.Time{}}, client)
@@ -248,7 +257,7 @@ func HandleClient(client *Client) {
 		client.Writer.Flush()
 		message, err := client.Reader.ReadString('\n')
 		if err != nil {
-			fmt.Println("Error reading message:", err)
+			log.Println("Error reading message from", clientIP, ":", err) // Log the error
 			return
 		}
 		message = strings.TrimSpace(message)
@@ -256,6 +265,18 @@ func HandleClient(client *Client) {
 			Broadcast(Message{Sender: client.Name, Text: message, Time: time.Now()}, client)
 		}
 	}
+}
+
+func isNameTaken(name string) bool {
+	clientsMux.Lock()
+	defer clientsMux.Unlock()
+
+	for _, client := range clients {
+		if client.Name == strings.TrimSpace(name) {
+			return true
+		}
+	}
+	return false
 }
 
 func RemoveClient(client *Client) {
@@ -269,10 +290,24 @@ func RemoveClient(client *Client) {
 		}
 	}
 
+	clientIP := client.Conn.RemoteAddr().String()
+	log.Println("Client disconnected:", clientIP)
+
 	Broadcast(Message{Sender: "", Text: "\n" + client.Name + " has left the chat...", Time: time.Time{}}, nil)
 }
 
 func main() {
+	// Create a log file
+	logFile, err := os.OpenFile("chat.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+	if err != nil {
+		fmt.Printf("Error opening file: %v", err)
+		return
+	}
+	defer logFile.Close()
+
+	// Set the output of the default logger to the log file
+	log.SetOutput(logFile)
+
 	args := os.Args
 	port := "8989"
 	if len(args) > 1 {
@@ -281,17 +316,18 @@ func main() {
 
 	listener, err := net.Listen("tcp", ":"+port)
 	if err != nil {
-		fmt.Println("Error listening:", err)
+		log.Println("Error listening:", err)
 		return
 	}
 	defer listener.Close()
 
+	log.Println("Listening on port:", port)
 	fmt.Println("Listening on port:", port)
 
 	for {
 		conn, err := listener.Accept()
 		if err != nil {
-			fmt.Println("Error accepting connection:", err)
+			log.Println("Error accepting connection:", err)
 			continue
 		}
 
