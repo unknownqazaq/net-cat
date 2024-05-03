@@ -139,7 +139,7 @@ func main() {
 	// Create a log file
 	logFile, err := os.OpenFile("chat.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 	if err != nil {
-		fmt.Printf("Error opening file: %v", err)
+		log.Println("Error opening file:", err)
 		return
 	}
 	defer logFile.Close()
@@ -147,10 +147,9 @@ func main() {
 	// Set the output of the default logger to the log file
 	log.SetOutput(logFile)
 
-	args := os.Args
-	port := "8989"
-	if len(args) > 1 {
-		port = args[1]
+	port := os.Getenv("PORT") // Get the port from the environment variable
+	if port == "" {
+		port = "8989" // Default to 8989 if no port is set
 	}
 
 	listener, err := net.Listen("tcp", ":"+port)
