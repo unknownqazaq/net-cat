@@ -31,8 +31,10 @@ var (
 )
 
 func Broadcast(message Message, sender *Client) {
-	if message.Sender == "" {
-		message.Sender = sender.Name
+	if sender != nil {
+		if message.Sender == "" {
+			message.Sender = sender.Name
+		}
 	}
 	if message.Time.IsZero() {
 		message.Time = time.Now()
