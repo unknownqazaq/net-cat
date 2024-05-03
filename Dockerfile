@@ -17,7 +17,7 @@ COPY . .
 RUN go build -o main .
 
 # Expose port 8989 to the outside world
-EXPOSE 8989
+EXPOSE 10000
 
 # Command to run the executable
 CMD ["./main"]
