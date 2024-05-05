@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-const defaultPort = "8080"
+const defaultPort = "8989"
 
 func main() {
 	// Настройка логирования
