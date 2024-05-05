@@ -2,7 +2,7 @@ package internal
 
 const (
 	fileName          = "hello.txt"
-	maxClients        = 10
+	maxClients        = 1000
 	dateFormat        = "2006-01-02 15:04:05"
 	welcomeMessage    = "Welcome to TCP-Chat!\n"
 	enterNamePrompt   = "[ENTER YOUR NAME]: "
