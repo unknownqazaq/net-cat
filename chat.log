@@ -221,3 +221,84 @@ dasdad has joined our chat...
 zhanserik has joined our chat...
 
 2024/05/03 20:30:58 Listening on port: 8989
+2024/05/03 20:44:49 Listening on port: 8989
+2024/05/03 20:44:56 Client connected: [::1]:58551
+2024/05/03 20:51:12 Listening on port: 8989
+2024/05/03 20:51:16 Client connected: [::1]:58841
+2024/05/03 20:51:39 Listening on port: 8989
+2024/05/03 20:51:43 Client connected: [::1]:58863
+2024/05/03 20:52:14 Client connected: [::1]:58887
+2024/05/03 20:52:30 [2024-05-03 20:51:54][zhanserik]: 
+zhanserik has joined our chat...
+
+2024/05/03 20:52:30 [2024-05-03 20:51:57][zhanserik]: hello
+
+2024/05/03 20:52:30 [2024-05-03 20:52:28][zhanserik]: how are you
+
+2024/05/03 20:58:30 Client connected: [::1]:59153
+2024/05/03 20:58:35 [2024-05-03 20:51:54][zhanserik]: 
+zhanserik has joined our chat...
+
+2024/05/03 20:58:35 [2024-05-03 20:51:57][zhanserik]: hello
+
+2024/05/03 20:58:35 [2024-05-03 20:52:28][zhanserik]: how are you
+
+2024/05/03 20:58:35 [2024-05-03 20:52:30][emil]: 
+emil has joined our chat...
+
+2024/05/03 20:58:35 [2024-05-03 20:52:45][emil]: good
+
+2024/05/03 20:58:35 [2024-05-03 20:52:51][emil]: and you?
+
+2024/05/03 20:58:35 [2024-05-03 20:52:57][zhanserik]: me too
+
+2024/05/03 22:19:29 Error listening: listen tcp :8989: bind: address already in use
+2024/05/03 22:19:41 Listening on port: 8989
+2024/05/03 22:19:51 Client connected: [::1]:62866
+2024/05/03 22:19:59 Client connected: [::1]:62871
+2024/05/05 04:42:50 Listening on port: 8989
+2024/05/05 04:43:00 Client connected: [::1]:59828
+2024/05/05 04:49:27 Listening on port: 8989
+2024/05/05 04:49:30 Client connected: [::1]:60115
+2024/05/05 04:49:51 Client connected: [::1]:60128
+2024/05/05 04:50:01 [2024-05-05 04:49:34][zhans]: 
+zhans has joined our chat...
+
+2024/05/05 04:50:01 [2024-05-05 04:49:36][zhans]: hello
+
+2024/05/05 04:55:23 Listening on port: 8989
+2024/05/05 04:55:27 Client connected: [::1]:60356
+2024/05/05 04:55:44 Client connected: [::1]:60367
+2024/05/05 04:55:47 [2024-05-05 04:55:30][zhanserik]: 
+zhanserik has joined our chat...
+
+2024/05/05 04:55:47 [2024-05-05 04:55:33][zhanserik]: adsad
+
+2024/05/05 10:07:08 Listening on port: 8989
+2024/05/05 10:07:49 Listening on port: 8989
+2024/05/05 10:08:18 Listening on port: 8989
+2024/05/05 10:09:29 Error running chat app: listen tcp :8989: bind: address already in use
+2024/05/05 10:09:32 Error running chat app: listen tcp :8989: bind: address already in use
+2024/05/05 10:09:37 Error running chat app: listen tcp :8989: bind: address already in use
+2024/05/05 10:09:41 Error running chat app: listen tcp :8989: bind: address already in use
+2024/05/05 10:09:58 Error running chat app: listen tcp :8989: bind: address already in use
+2024/05/05 10:10:00 Error running chat app: listen tcp :8989: bind: address already in use
+2024/05/05 10:10:42 Error running chat app: listen tcp :8989: bind: address already in use
+2024/05/05 10:11:57 Error running chat app: listen tcp :8989: bind: address already in use
+2024/05/05 10:12:37 Listening on port: 8080
+2024/05/05 10:12:45 Listening on port: 8080
+2024/05/05 10:12:58 Listening on port: 8080
+2024/05/05 10:13:07 Listening on port: 8080
+2024/05/05 10:13:22 Listening on port: 8080
+2024/05/05 10:13:36 Listening on port: 8080
+2024/05/05 10:13:49 Client connected: [::1]:63416
+2024/05/05 10:14:22 Listening on port: 8080
+2024/05/05 10:14:34 Client connected: [::1]:63461
+2024/05/05 10:14:47 Client connected: [::1]:63474
+2024/05/05 10:14:48 [2024-05-05 10:14:37][zhans]: 
+zhans has joined our chat...
+
+2024/05/05 10:14:48 [2024-05-05 10:14:40][zhans]: hello
+
+2024/05/05 10:15:28 Listening on port: 8080
+2024/05/05 10:15:45 Listening on port: 8080
