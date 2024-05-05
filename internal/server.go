@@ -37,7 +37,7 @@ func HandleClient(client *Client) {
 	defer RemoveClient(client)
 
 	clientIP := client.Conn.RemoteAddr().String()
-	log.Println("Client connected:", clientIP)
+	fmt.Println("Client connected:", clientIP)
 
 	content, err := readFile(fileName)
 	if err != nil {
@@ -120,7 +120,7 @@ func RemoveClient(client *Client) {
 	}
 
 	clientIP := client.Conn.RemoteAddr().String()
-	log.Println("Client disconnected:", clientIP)
+	fmt.Println("Client disconnected:", clientIP)
 
 	Broadcast(Message{Sender: "", Text: "\n" + client.Name + leaveChatMessage, Time: time.Time{}}, nil)
 }

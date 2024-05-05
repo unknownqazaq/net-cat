@@ -302,3 +302,5 @@ zhans has joined our chat...
 
 2024/05/05 10:15:28 Listening on port: 8080
 2024/05/05 10:15:45 Listening on port: 8080
+2024/05/05 10:19:29 Client connected: [::1]:63699
+2024/05/05 10:20:40 Error reading message from [::1]:63747 : EOF

@@ -22,7 +22,6 @@ func main() {
 
 	// Создание и запуск приложения
 	appChat := app.NewChatApp(defaultPort)
-	fmt.Println("Chat app is running in port:", defaultPort)
 	if err := appChat.Run(); err != nil {
 		fmt.Println("Error running chat app:", err)
 	}

@@ -2,7 +2,7 @@ package app
 
 import (
 	"bufio"
-	"log"
+	"fmt"
 	"net"
 	"net-cat/internal"
 )
@@ -26,13 +26,13 @@ func (app *ChatApp) Run() error {
 	}
 	defer listener.Close()
 
-	log.Println("Listening on port:", app.Port)
+	fmt.Println("Listening on port:", app.Port)
 
 	// Обработка подключений
 	for {
 		conn, err := listener.Accept()
 		if err != nil {
-			log.Println("Error accepting connection:", err)
+			fmt.Println("Error accepting connection:", err)
 			continue
 		}
 
