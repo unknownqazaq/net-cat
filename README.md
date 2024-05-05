@@ -12,7 +12,7 @@ $ go run . $port
 ### Example
 - `1st` Terminal
 ```bash
-$ go run main.go 
+$ go run . 8989
 Listening on the port :8989
 Client connected: [::1]:63747
 Client disconnected: [::1]:63747
@@ -21,7 +21,7 @@ $
 ```
 - `2nd` Terminal
 ```bash
-$ go run main.go 8989
+$ go run . 8989
 $ nc localhost 8989
 Welcome to TCP-Chat!
          _nnnn_
@@ -63,7 +63,7 @@ $
 ```
 - `3rd` Terminal
 ```bash
-$go run main.go 8989
+$go run . 8989
 Yenliks-MacBook-Air:simpleTCPChat ybokina$ nc localhost 8989
 Welcome to TCP-Chat!
          _nnnn_
