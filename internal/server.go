@@ -79,7 +79,7 @@ func HandleClient(client *Client) {
 		log.Println(formattedMessage)
 	}
 
-	Broadcast(Message{Sender: "", Text: "\n" + client.Name + joinChatMessage, Time: time.Time{}}, client)
+	Broadcast(Message{Sender: "SERVER", Text: "" + client.Name + joinChatMessage, Time: time.Time{}}, client)
 
 	for {
 		client.Writer.WriteString(fmt.Sprintf("[%s][%s]: ", time.Now().Format(dateFormat), client.Name))
@@ -122,7 +122,7 @@ func RemoveClient(client *Client) {
 	clientIP := client.Conn.RemoteAddr().String()
 	fmt.Println("Client disconnected:", clientIP)
 
-	Broadcast(Message{Sender: "", Text: "\n" + client.Name + leaveChatMessage, Time: time.Time{}}, nil)
+	Broadcast(Message{Sender: "SERVER", Text: "" + client.Name + leaveChatMessage, Time: time.Time{}}, nil)
 }
 
 func readFile(filename string) ([]byte, error) {
